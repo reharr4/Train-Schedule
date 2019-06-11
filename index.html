@@ -12,102 +12,91 @@
     <title>Train Scheduler</title>
 </head>
 
+<!DOCTYPE html>
+<html lang="en">
+<!-- 1.Create a basic page with all neccessary elements.-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Roster</title>
+    <!--Link bootstrap, jQuery and your custom JS file.-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="assets/logic.js"></script>
+</head>
+
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <!--Create a jumbotron for heading-->
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="text-align:center">Train Scheduler</h1>
+                <h3 class="display-6" style="text-align: center">Choo Choo</h3>
+            </div>
         </div>
-    </div>
-
-    <div>
-        <div class="card">
-            <div class="card-header">Current Train Schedule</div>
+        <!--Create a row for placing card and input fields.-->
+        <div class="row">
+            <div class="col col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Current Train Schedule
+                    </div>
+                    <ul class="list-group list-group-flush" id="rosterList">
+                        <li class="list-group-item">Cras justo odio</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Train Name</th>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Frequency(min)</th>
-                    <th scope="col">Next Arrival</th>
-                    <th scope="col">Minutes Away</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>"#"</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>"#"</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>"#"</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <br>
 
-    <br>
-    <br>
-
-    <div class="card">
-        <div class="card-header">Add Train</div>
-        <div class="card-body">
-            <form action="logic.js" method="GET" add-train">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Train Name</span>
+        <div class="row">
+            <div class="col col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Add a Train
                         </div>
-                        <input type="text" class="form-control" placeholder="Train">
-                    </div>
+                        <form id="newTrain">
+                            <div class="form-row">
+                                <div class="form-group col-md-10" style="align-content: center">
+                                    <label for="inputTrain">Train Name</label>
+                                    <input type="email" class="form-control" id="inputTrain">
+                                </div>
+                            </div>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">Destination</span>
+                            <div class="form-group col-md-10" style="align-content: center">
+                                    <label for="inputDestination">Destination</label>
+                                    <input type="text" class="form-control" id="inputDestination">
+                                </div>
+
+                                <div class="form-group col-md-10" style="align-content: center">
+                                    <label for="inputFirstTrain">First Train Time (HH:mm - Military Time)</label>
+                                    <input type="text" class="form-control" id="inputFirstTrain">
+                                </div>
+
+                                <div class="form-group col-md-10">
+                                    <label for="inputFrequency">Frequency</label>
+                                    <input type="text" class="form-control" id="inputFrequency">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">All Aboard!</button>
+                        </form>
                         </div>
-                        <input type="text" class="form-control" placeholder="Destination">
                     </div>
+                </div>
+</body>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">First Train Time (HH:mm - Military
-                                Time)</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
+</html>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Frequency</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
-        </div>
-        </form>
-        <a href="#" class="btn btn-primary" id="add-train">Go somewhere</a>
-    </div>
-    </div>
-
-    <!-- moment.js -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- javascript -->
-    <script type="javascript/text" src="assets/javascript/logic.js"></script>
+<!-- moment.js -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- javascript -->
+<script type="javascript/text" src="assets/javascript/logic.js"></script>
 </body>
 
 </html>
