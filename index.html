@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/CSS/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="reset" href="/assets/CSS/reset.css" type="text/css">
+    <title>Train Scheduler</title>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+
+    <div>
+        <div class="card">
+            <div class="card-header">Current Train Schedule</div>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency(min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>"#"</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>"#"</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>"#"</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="card">
+        <div class="card-header">Add Train</div>
+        <div class="card-body">
+            <form action="logic.js" method="GET" add-train">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Train Name</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Train">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">Destination</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Destination">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">First Train Time (HH:mm - Military
+                                Time)</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Frequency</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+        </div>
+        </form>
+        <a href="#" class="btn btn-primary" id="add-train">Go somewhere</a>
+    </div>
+    </div>
+
+    <!-- moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+</body>
+
+</html>
