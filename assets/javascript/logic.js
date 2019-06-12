@@ -1,12 +1,27 @@
 $(document).ready(function () {
+    // add train button
+    $("#addTrainButton").on("click", function() {
+        // press enter or submit button
+        event.preventDefault;
 
-    var addTrain = $(this).attr()
+        // variables for form/user input
+        var trainName = $("#newTrainName").val().trim();
+        var destName = $("#newDestinationName").val().trim();
+        var timeName = $("#newFirstTime").val().trim();
+        var freqName = $("#newFrequencyTime").val().trim();
 
-// submit button on click function
-$("#add-train").on("click", function (event) {
-    // press enter or submit
-    event.preventDefault();
-    // grab input from textbox
-    // var addTrain = $(".input-group-prepend").val().trim();
-    // $("input-group-prepend").val("");
-}
+        console.log(trainName);
+        console.log(destName);
+        console.log(timeName);
+        console.log(freqName);
+
+        // object to hold form/user input data
+        var newTrain = {
+            name: trainName,
+            destination: destName,
+            firstTime: timeName,
+            frequency: freqName,
+        }
+
+    })
+});
