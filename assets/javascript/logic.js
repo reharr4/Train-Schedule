@@ -23,5 +23,16 @@ $(document).ready(function () {
             frequency: freqName,
         }
 
+        $("#trainTable").append("<tr><td>" + newTrain + "<tr><td>");
+
+
+        // clear input boxes
+        $("#newTrainName").val("");
+        $("#newDestinationName").val("");
+        $("#newFirstTime").val("");
+        $("#newFrequencyTime").val("");
+
     })
+
+        
 });
