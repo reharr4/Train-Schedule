@@ -1,38 +1,84 @@
-$(document).ready(function () {
+// firebase
+var firebaseConfig = {
+    apiKey: "AIzaSyAHe6gFEGrkdvY3HfpVRG0myWfTT7AJWBQ",
+    authDomain: "train-scheduler-9b837.firebaseapp.com",
+    databaseURL: "https://train-scheduler-9b837.firebaseio.com",
+    projectId: "train-scheduler-9b837",
+    storageBucket: "train-scheduler-9b837.appspot.com",
+    messagingSenderId: "729187557688",
+    appId: "1:729187557688:web:108e2efbaab4eac4"
+  };
+//   Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  var database = firebase.database();
+    
     // add train button
-    $("#addTrainButton").on("click", function() {
+    $("#add-train").on("click", function() {
         // press enter or submit button
         event.preventDefault;
 
         // variables for form/user input
-        var trainName = $("#newTrainName").val().trim();
-        var destName = $("#newDestinationName").val().trim();
-        var timeName = $("#newFirstTime").val().trim();
-        var freqName = $("#newFrequencyTime").val().trim();
+        var trainName = $("#new-train").val().trim();
+        var destination = $("#new-destination").val().trim();
+        var trainTime = $("#new-train-time").val().trim();
+        var frequency = $("#new-frequency").val().trim();
 
-        console.log(trainName);
-        console.log(destName);
-        console.log(timeName);
-        console.log(freqName);
-
-        // object to hold form/user input data
+        // temporary object for train data
         var newTrain = {
             name: trainName,
-            destination: destName,
-            firstTime: timeName,
-            frequency: freqName,
+            dest: destination,
+            time: trainTime,
+            freq: frequency
         }
 
-        $("#trainTable").append("<tr><td>" + newTrain + "<tr><td>");
+        // push data to firebase
+        database.ref().push(newTrain);
 
+        console.log(newTrain);
+        console.log(trainName);
+        console.log(destination);
+        console.log(trainTime);
+        console.log(frequency);
+        console.log(departure);
+
+        $("#trainTable").append("<td> "+name+"<td>");
+        $("#trainTable").append("<td> "+destination+"<td>");
+        $("#trainTable").append("<td> "+frequency+"<td>");
+        $("#trainTable").append("<td> "+time+"<td>");
+        $("#trainTable").append("<td> "+departure+"<td>");
 
         // clear input boxes
         $("#newTrainName").val("");
         $("#newDestinationName").val("");
-        $("#newFirstTime").val("");
         $("#newFrequencyTime").val("");
+        $("#newFirstTime").val("");
 
+        return false;  
     })
 
         
-});
+// Assumptions
+var tFrequency = 3;
+
+// First Departure Time
+var firstTime = "00:00";
+
+// Current Time
+var currentTime = moment();
+
+// First Time (pushed back 1 year to make sure it comes before current time)
+var converted = moment(firstTime, "HH:mm").subtract(1, "years");
+
+// Difference between the times
+var difference = moment().diff(moment(converted), "minutes");
+
+// Time apart (remainder)
+var tRemaining = difference % tFrequency;
+
+// Minutes Until Train
+var tMinutesTillTrain = tFrequency - tRemaining;
+
+nextTrain = moment().add(tRemaining, "minutes");
+result = moment(nextTrain).format("HH:mm A");
+
