@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 // firebase
 var firebaseConfig = {
     apiKey: "AIzaSyAHe6gFEGrkdvY3HfpVRG0myWfTT7AJWBQ",
@@ -49,8 +51,7 @@ $("#add-train").on("click", function () {
     $("#new-train-time").val("");
 
     return false;
-
-});
+})
 // firebase even for adding data to database and entering a new row in html
 database.ref().on("child_added", function (childSnapshot) {
 
@@ -59,9 +60,6 @@ database.ref().on("child_added", function (childSnapshot) {
     var destination = childSnapshot.val().dest;
     var trainTime = childSnapshot.val().time;
     var frequency = childSnapshot.val().freq;
-
-// First Departure Time
-// var firstTime = "00:00";
 
 // Current Time
 var currentTime = moment();
@@ -73,11 +71,12 @@ var converted = moment(trainTime, "HH:mm").subtract(1, "years");
 var difference = currentTime.diff(moment(converted), "minutes");
 
 // Time apart (remainder)
-var tRemaining = difference % tFrequency;
+var tRemaining = difference % frequency;
 
 // Next train
 nextTrain = moment().add(tRemaining, "minutes");
 
 $("#train-table").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextTrain + "</td><td>" + tRemaining + "</td></tr>");
 
+});
 });
