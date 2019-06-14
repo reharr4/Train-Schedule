@@ -36,27 +36,21 @@ $("#add-train").on("click", function () {
     database.ref().push(newTrain);
 
     console.log(newTrain);
-    console.log(trainName);
-    console.log(destination);
-    console.log(trainTime);
-    console.log(frequency);
-    console.log(departure);
-
-    // $("#trainTable").append("<td> " + name + "<td>");
-    // $("#trainTable").append("<td> " + destination + "<td>");
-    // $("#trainTable").append("<td> " + frequency + "<td>");
-    // $("#trainTable").append("<td> " + time + "<td>");
-    // $("#trainTable").append("<td> " + departure + "<td>");
+    // console.log(trainName);
+    // console.log(destination);
+    // console.log(trainTime);
+    // console.log(frequency);
+    // console.log(departure);
 
     // clear input boxes
-    $("#newTrainName").val("");
-    $("#newDestinationName").val("");
-    $("#newFrequencyTime").val("");
-    $("#newFirstTime").val("");
+    $("#new-train").val("");
+    $("#new-destination").val("");
+    $("#new-frequency").val("");
+    $("#new-train-time").val("");
 
     return false;
-})
 
+});
 // firebase even for adding data to database and entering a new row in html
 database.ref().on("child_added", function (childSnapshot) {
 
@@ -65,10 +59,9 @@ database.ref().on("child_added", function (childSnapshot) {
     var destination = childSnapshot.val().dest;
     var trainTime = childSnapshot.val().time;
     var frequency = childSnapshot.val().freq;
-    })
 
 // First Departure Time
-var firstTime = "00:00";
+// var firstTime = "00:00";
 
 // Current Time
 var currentTime = moment();
@@ -77,17 +70,14 @@ var currentTime = moment();
 var converted = moment(trainTime, "HH:mm").subtract(1, "years");
 
 // Difference between the times
-var difference = moment().diff(moment(converted), "minutes");
+var difference = currentTime.diff(moment(converted), "minutes");
 
 // Time apart (remainder)
 var tRemaining = difference % tFrequency;
-
-// Minutes Until Train
-var tMinutesTillTrain = tFrequency - tRemaining;
 
 // Next train
 nextTrain = moment().add(tRemaining, "minutes");
 
 $("#train-table").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextTrain + "</td><td>" + tRemaining + "</td></tr>");
 
-;
+});
