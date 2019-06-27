@@ -1,5 +1,4 @@
 ## Train-Schedule
-#Week 7, Firebase - Homework
 
 Used JS, jQuery, Bootstrap, Moment.js, and Firebase to update a train schedule and train times.
 
