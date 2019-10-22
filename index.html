@@ -36,82 +36,51 @@
                     <div class="card-header bg-success text-white">
                         Current Train Schedule
                     </div>
-                    <table id="trainTable" class="table table-striped table-hover">
-                        <thead style="font-weight: bold">
-                            <tr>
-                                <th scope="col">Train Name</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Frequency (mins)</th>
-                                <th scope="col">Next Departure</th>
-                                <th scope="col">Minutes to Departure</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Polar Express</td>
-                                <td>North Pole</td>
-                                <td>525600</td>
-                                <td>20:00</td>
-                                <td>281110</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <div class="row">
-            <div class="col col-lg-12">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        Add a Train
-                    </div>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Train Name</span>
-                        </div>
-                        <input type="text" id="new-train" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-                    <br>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Destination</span>
-                        </div>
-                        <input type="text" id="new-destination" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-                    <br>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Frequency of Departures</span>
-                        </div>
-                        <input type="text" id="new-frequency" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <br>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">First Departure Time
-                                (HH:mm)</span>
-                        </div>
-                        <input type="text" id="new-train-time" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
+                    <div class="card-body">
+                        <table id="trainTable" class="table table-striped table-hover">
+                            <thead style="font-weight: bold">
+                                <tr>
+                                    <th>Train Name</th>
+                                    <th>Destination</th>
+                                    <th>Frequency (mins)</th>
+                                    <th>Next Departure</th>
+                                    <th>Minutes to Departure</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
-        </div>
-
-        <div>
-            <button type="button" id="add-train" class="btn btn-success">All Aboard</button>
+            <!-- Add a train -->
+            <br>
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    Add a Train
+                </div>
+                <br>
+                <!-- Entry Form -->
+                <form>
+                    <div class="form-group">
+                        <label for="train-name-input">Train Name</label>
+                        <input type="text" class="form-control" id="train-name-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination-input">Destination</label>
+                        <input type="text" class="form-control" id="destination-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-train-input">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="first-train-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency-input">Frequency (min)</label>
+                        <input type="text" class="form-control" id="frequency-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add-train-btn">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
