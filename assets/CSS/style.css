@@ -1,6 +1,11 @@
 .container {
     font-family: 'Ubuntu', sans-serif;
 }
+#formCard{
+    margin-top: .3em;
+    margin-bottom: .3em;
+    /* border: none; */
+}
 
 .header {
     font-size: 50px;
@@ -9,4 +14,7 @@
 #clock,
 .sub {
     font-size: 25px;
+}
+#add-train-btn{
+    margin-bottom: .3em;
 }
